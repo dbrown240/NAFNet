@@ -55,10 +55,22 @@ python setup.py develop --no_cuda_ext
   ```
     * Image Deblur:
     ```
-    python basicsr/demo.py -opt options/test/GoPro/NAFNet-width64.yml --input_path ./demo/blurry.png --output_path ./demo/deblur_img.png
+    python basicsr/demo.py -opt options/test/REDS/NAFNet-width64.yml --input_path ./demo/blurry.jpg --output_path ./demo/deblur_img.png
     ```
     * ```--input_path```: the path of the degraded image
     * ```--output_path```: the path to save the predicted image
+    * [pretrained models](https://github.com/megvii-research/NAFNet/#results-and-pre-trained-models) should be downloaded. 
+* Stereo Image Inference Demo:
+    * Stereo Image Super-resolution:
+    ```
+    python basicsr/demo_ssr.py -opt options/test/NAFSSR/NAFSSR-L_4x.yml \
+    --input_l_path ./demo/lr_img_l.png --input_r_path ./demo/lr_img_r.png \
+    --output_l_path ./demo/sr_img_l.png --output_r_path ./demo/sr_img_r.png
+    ```
+    * ```--input_l_path```: the path of the degraded left image
+    * ```--input_r_path```: the path of the degraded right image
+    * ```--output_l_path```: the path to save the predicted left image
+    * ```--output_r_path```: the path to save the predicted right image
     * [pretrained models](https://github.com/megvii-research/NAFNet/#results-and-pre-trained-models) should be downloaded. 
 * Try the web demo with all three tasks here: [![Replicate](https://replicate.com/megvii-research/nafnet/badge)](https://replicate.com/megvii-research/nafnet)
 
@@ -74,9 +86,9 @@ python setup.py develop --no_cuda_ext
 |NAFSSR-L_4x|Flickr1024|24.17|0.7589|[gdrive](https://drive.google.com/file/d/1TIdQhPtBrZb2wrBdAp9l8NHINLeExOwb/view?usp=sharing)  \|  [百度网盘](https://pan.baidu.com/s/1P8ioEuI1gwydA2Avr3nUvw?pwd=qs7a)|[train](./options/test/NAFSSR/NAFSSR-L_4x.yml) \| [test](./options/test/NAFSSR/NAFSSR-L_4x.yml)|
 |NAFSSR-L_2x|Flickr1024|29.68|0.9221|[gdrive](https://drive.google.com/file/d/1SZ6bQVYTVS_AXedBEr-_mBCC-qGYHLmf/view?usp=sharing)  \|  [百度网盘](https://pan.baidu.com/s/1GS6YQSSECH8hAKhvzw6GyQ?pwd=2v3v)|[train](./options/test/NAFSSR/NAFSSR-L_2x.yml) \| [test](./options/test/NAFSSR/NAFSSR-L_2x.yml)|
 
-### Image Restoration Tasks
+### Image Restoration Tasks 
 
-| Task                                 | Dataset | Instructions            | Visualization Results                                        |
+| Task                                 | Dataset | Train/Test Instructions            | Visualization Results                                        |
 | :----------------------------------- | :------ | :---------------------- | :----------------------------------------------------------- |
 | Image Deblurring                     | GoPro   | [link](./docs/GoPro.md) | [gdrive](https://drive.google.com/file/d/1S8u4TqQP6eHI81F9yoVR0be-DLh4cNgb/view?usp=sharing)   \|   [百度网盘](https://pan.baidu.com/s/1yNYQhznChafsbcfHO44aHQ?pwd=96ii)|
 | Image Denoising                      | SIDD    | [link](./docs/SIDD.md)  | [gdrive](https://drive.google.com/file/d/1rbBYD64bfvbHOrN3HByNg0vz6gHQq7Np/view?usp=sharing)   \|   [百度网盘](https://pan.baidu.com/s/1wIubY6SeXRfZHpp6bAojqQ?pwd=hu4t)|
